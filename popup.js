@@ -69,3 +69,7 @@ function removeTrailingStrings(str) {
 
   return str; // パターンに一致しない場合は元の文字列を返す
 }
+
+
+// 初回起動時
+getRecentFiles(0)
