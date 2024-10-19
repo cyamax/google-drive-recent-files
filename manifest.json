@@ -6,7 +6,7 @@
     "permissions": [
       "activeTab",
       "storage",
-      "history"  // history パーミッションを追加
+      "history"
     ],
     "action": {
       "default_popup": "popup.html"
