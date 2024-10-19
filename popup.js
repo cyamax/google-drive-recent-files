@@ -26,17 +26,17 @@ function getRecentFiles(fileType) {
       // アイコンを追加する
       const icon = document.createElement("img");
         if (/document/.test(file.webViewLink)) {
-          icon.src = "images/docs_192px.svg";// ドキュメントアイコンのパス
+          icon.src = "images/docs_192px.svg";
         } else if (/spreadsheets/.test(file.webViewLink)) {
-          icon.src = "images/sheets_192px.svg"; // スプレッドシートアイコンのパス
+          icon.src = "images/sheets_192px.svg"; 
         } else if (/presentation/.test(file.webViewLink)) {
-          icon.src = "images/slides_192px.svg"; // プレゼンテーションアイコンのパス
+          icon.src = "images/slides_192px.svg"; 
         } else if (/forms/.test(file.webViewLink)) {
-          icon.src = "images/forms_192px.svg"; // プレゼンテーションアイコンのパス
+          icon.src = "images/forms_192px.svg";
         } else if (/drive/.test(file.webViewLink)) {
-          icon.src = "images/folder_192px.svg"; // プレゼンテーションアイコンのパス
+          icon.src = "images/folder_192px.svg";
         } else {
-          icon.src = ""; // それ以外のファイルのアイコンのパス
+          icon.src = "images/folder_192px.svg"; // それ以外のファイルのアイコンのパス
         }
 
       // アイコンのサイズを設定
