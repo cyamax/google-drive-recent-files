@@ -36,13 +36,13 @@ function getRecentFiles(fileType) {
           icon = "images/folder_192px.svg"; // それ以外のファイルのアイコンのパス
         }
 
-        const historyItemHTML = `<a href="${file.webViewLink}" target="_blank"><div class="history-item">
+        const historyItemHTML = `<a href="${file.webViewLink}" target="_blank">
+          <div class="history-item">
             <img class="file-icon doc" src="${icon}" width="20" height="20">
-          <div class="file-info">
             <p class="file-name">${textContent}</p>
-            
+            <span class="access-time">${file.visitCount} ${timeStamp.toLocaleDateString()}</span>
           </div>
-        </div></a>`;
+        </a>`;
       fileList.insertAdjacentHTML('beforeend', historyItemHTML);
     });
   });

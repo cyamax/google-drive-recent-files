@@ -138,15 +138,11 @@ body {
   .file-icon.image { color: #805ad5; }
   .file-icon.folder { color: #718096; }
 
-  .file-info {
-    flex-grow: 1;
-    min-width: 0;
-  }
 
   .file-name {
     font-size: 14px;
     color: #2d3748;
-    margin: 0 0 4px 0;
+    margin: 0 0 0 0;
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -156,6 +152,10 @@ body {
   .access-time {
     font-size: 12px;
     color: #718096;
+    text-align: right;
+    width: 100px;
+    margin: auto 0 auto auto;
+
   }
 
   a {
