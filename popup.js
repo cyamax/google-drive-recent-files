@@ -1,4 +1,5 @@
 document.getElementById('getFilesButton_all').addEventListener('click', function() {getRecentFiles(0)});
+document.getElementById('getFilesButton_folder').addEventListener('click', function() {getRecentFiles(1)});
 document.getElementById('getFilesButton_docs').addEventListener('click', function() {getRecentFiles(2)});
 document.getElementById('getFilesButton_slides').addEventListener('click', function() {getRecentFiles(3)});
 document.getElementById('getFilesButton_sheets').addEventListener('click', function() {getRecentFiles(4)});
@@ -30,6 +31,8 @@ function getRecentFiles(fileType) {
           icon.src = "images/slides_192px.svg"; // プレゼンテーションアイコンのパス
         } else if (/forms/.test(file.webViewLink)) {
           icon.src = "images/forms_192px.svg"; // プレゼンテーションアイコンのパス
+        } else if (/drive/.test(file.webViewLink)) {
+          icon.src = "images/folder_192px.svg"; // プレゼンテーションアイコンのパス
         } else {
           icon.src = ""; // それ以外のファイルのアイコンのパス
         }
@@ -54,6 +57,7 @@ function removeTrailingStrings(str) {
     " - Google スプレッドシート",
     " - Google フォーム",
     " - Google スライド",
+    " - Google ドライブ"
   ];
 
   for (let i = 0; i < patterns.length; i++) {
