@@ -1,8 +1,9 @@
 document.getElementById('getFilesButton_all').addEventListener('click', function() {getRecentFiles(0)});
 document.getElementById('getFilesButton_folder').addEventListener('click', function() {getRecentFiles(1)});
 document.getElementById('getFilesButton_docs').addEventListener('click', function() {getRecentFiles(2)});
-document.getElementById('getFilesButton_slides').addEventListener('click', function() {getRecentFiles(3)});
-document.getElementById('getFilesButton_sheets').addEventListener('click', function() {getRecentFiles(4)});
+document.getElementById('getFilesButton_sheets').addEventListener('click', function() {getRecentFiles(3)});
+document.getElementById('getFilesButton_slides').addEventListener('click', function() {getRecentFiles(4)});
+
 
 function getRecentFiles(fileType) {
   chrome.runtime.sendMessage({ action: "getRecentFiles", fileType: fileType }, function(response) {
