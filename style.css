@@ -39,9 +39,10 @@ body {
     border-bottom: 1px solid #e2e8f0;
     background: white;
     position: sticky;
-    top: 49px;
+    top: 0px;
     z-index: 10;
     overflow-x: auto;
+    border-radius: 8px 8px 0 0;
     scrollbar-width: none; /* Firefoxのスクロールバーを非表示 */
   }
 
@@ -107,7 +108,7 @@ body {
 
   .history-list {
     padding: 8px 16px 16px;
-    max-height: 400px;
+    max-height: 490px;
     overflow-y: auto;
   }
 
