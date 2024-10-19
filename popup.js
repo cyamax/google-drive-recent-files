@@ -18,8 +18,9 @@ function getRecentFiles(fileType) {
     response.files.forEach(file => {
       const li = document.createElement("li");
       const a = document.createElement("a");
+      const timeStamp = new Date(file.lastVisitTime);
       a.href = file.webViewLink;
-      a.textContent = "[" + file.visitCount + "]" + removeTrailingStrings(file.name);
+      a.textContent = "[" + file.visitCount + "] " +timeStamp.toLocaleDateString() + " " +removeTrailingStrings(file.name);
       a.target = "_blank";
 
       // アイコンを追加する
