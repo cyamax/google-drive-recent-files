@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === "getRecentFiles") {
-      const urlPattern = /https:\/\/(docs|drive).google.com\//; 
-      const searchWords = ['https://drive.google.com', 'https://docs.google.com','https://docs.google.com/document']
-      const word = searchWords[1]
+      const searchWords = ['https://docs.google.com','https://drive.google.com','https://docs.google.com/document','https://docs.google.com/spreadsheets','https://docs.google.com/presentation']
+      const word = searchWords[request.fileType]
+      console.log(word)
       chrome.history.search({
         'text': word,
         'startTime': 0, 
@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       }, function(historyItems) {
         const files = [];
         let lastUrl = ""; // 直前に追加した URL を保存する変数
-        console.table(historyItems)
+        // console.table(historyItems)
         historyItems.forEach(item => {
             // if (urlPattern.test(item.url)) {
             if (item.url.includes(word)) {
