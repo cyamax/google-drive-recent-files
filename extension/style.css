@@ -124,7 +124,8 @@ body {
   }
 
   .history-item:hover {
-    background-color: #f7fafc;
+    border-color: #3182ce; /* マウスオーバー時に青い枠線を表示 */
+    background-color: #e2e8f0;
   }
 
   .file-icon {

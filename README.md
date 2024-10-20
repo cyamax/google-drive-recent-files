@@ -35,6 +35,17 @@ This Chrome extension displays your recent Google Drive access history in a popu
 * JavaScript
 * SVG
 
+## Git Hooks
+
+This project uses Git hooks to automate tasks during development. 
+To use the Git hooks in this project, run the following command:
+```bash
+git config --local core.hooksPath .githooks
+chmod +x .githooks/pre-commit
+```
+This will configure Git to use the hooks in the .githooks directory.
+The pre-commit hook is used to automatically compress the extension directory into a zip file before each commit. This ensures that the extension is always ready to be packaged and distributed.
+
 
 ## Contributing
 
