@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# 圧縮するフォルダ名
+EXTENSION_FOLDER="extension"
+
+# zipファイル名
+ZIP_FILE="extension.zip"
+
+# 圧縮コマンド
+zip -r "$ZIP_FILE" "$EXTENSION_FOLDER"
