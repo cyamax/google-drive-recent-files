@@ -40,7 +40,7 @@ function getRecentFiles(fileType) {
           <div class="history-item">
             <svg class="file-icon ${iconId}"><use xlink:href="sprite.svg#${iconId}" ></use></svg>
             <span class="file-name">${textContent}</span>
-            <span class="access-time">${file.visitCount} ${timeStamp.toLocaleDateString()}</span>
+            <span class="access-time">${timeStamp.toLocaleDateString()}</span>
           </div>
         </a>`;
       fileList.insertAdjacentHTML('beforeend', historyItemHTML);
