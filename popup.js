@@ -21,24 +21,24 @@ function getRecentFiles(fileType) {
       const textContent = removeTrailingStrings(file.name);
 
       // アイコンを追加する
-      let icon = ""
-        if (/document/.test(file.webViewLink)) {
-          icon = "images/docs_192px.svg";
-        } else if (/spreadsheets/.test(file.webViewLink)) {
-          icon = "images/sheets_192px.svg"; 
-        } else if (/presentation/.test(file.webViewLink)) {
-          icon = "images/slides_192px.svg"; 
-        } else if (/forms/.test(file.webViewLink)) {
-          icon = "images/forms_192px.svg";
-        } else if (/drive/.test(file.webViewLink)) {
-          icon = "images/folder_192px.svg";
-        } else {
-          icon = "images/folder_192px.svg"; // それ以外のファイルのアイコンのパス
-        }
-
+      let iconId = ""
+      if (/document/.test(file.webViewLink)) {
+        iconId = "icon-doc";
+      } else if (/spreadsheets/.test(file.webViewLink)) {
+        iconId = "icon-sheet"; 
+      } else if (/presentation/.test(file.webViewLink)) {
+        iconId = "icon-slide"; 
+      } else if (/forms/.test(file.webViewLink)) {
+        iconId = "icon-form";
+      } else if (/drive/.test(file.webViewLink)) {
+        iconId = "icon-folder";
+      } else {
+        iconId = "icon-folder"; // それ以外のファイルのアイコンのパス
+      }
+      
         const historyItemHTML = `<a href="${file.webViewLink}" target="_blank">
           <div class="history-item">
-            <img class="file-icon doc" src="${icon}" width="20" height="20">
+            <svg class="file-icon ${iconId}"><use xlink:href="sprite.svg#${iconId}" ></use></svg>
             <span class="file-name">${textContent}</span>
             <span class="access-time">${file.visitCount} ${timeStamp.toLocaleDateString()}</span>
           </div>
