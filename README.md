@@ -2,6 +2,7 @@
 
 This Chrome extension displays your recent Google Drive access history in a popup, allowing you to quickly find and open recently accessed files.
 
+[Chrome Web Store](https://chromewebstore.google.com/detail/google-drive-recent-files/opblkpgckdpdnlckcjbkphbffhkjfflm)
 ![](images/image.png)
 
 ## Features
