@@ -172,3 +172,9 @@ body {
     font-size: inherit;
     font-weight: inherit;
   }
+
+  .highlight {
+    width: 12px;
+    color: #FF0000; 
+    font-weight: bold; 
+  }
