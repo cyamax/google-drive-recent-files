@@ -1,5 +1,6 @@
 'use strict';
 
+import './input.css';
 import './popup.css';
 
 (function () {
