@@ -1,21 +1,37 @@
-'use strict';
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === "getRecentFiles") {
+    const searchWords = ['https://docs.google.com','https://drive.google.com','https://docs.google.com/document','https://docs.google.com/spreadsheets','https://docs.google.com/presentation']
+    const word = searchWords[request.fileType]
+    console.log(word)
+    chrome.history.search({
+      'text': word,
+      'startTime': 0, 
+      'maxResults': 100 
+    }, function(historyItems) {
+      const files = [];
+      const seenUrls = new Set(); // 既に追加した URL を保存する Set
 
-// With background scripts you can communicate with popup
-// and contentScript files.
-// For more information on background script,
-// See https://developer.chrome.com/extensions/background_pages
+      historyItems.forEach(item => {
+        if (item.url.includes(word)) {
+          // URL から引数を削除
+          const urlWithoutParams = new URL(item.url).origin + new URL(item.url).pathname;
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.type === 'GREETINGS') {
-    const message = `Hi ${
-      sender.tab ? 'Con' : 'Pop'
-    }, my name is Bac. I am from Background. It's great to hear from you.`;
+          // seenUrls に URL が含まれていない場合のみ処理
+          if (!seenUrls.has(urlWithoutParams)) {
+            files.push({
+              name: item.title,
+              webViewLink: item.url,
+              lastVisitTime: item.lastVisitTime,
+              visitCount: item.visitCount
+            });
+            seenUrls.add(urlWithoutParams); // seenUrls に URL を追加
+          }
+        }
+      });
 
-    // Log message coming from the `request` parameter
-    console.log(request.payload.message);
-    // Send a response message
-    sendResponse({
-      message,
+      sendResponse({ files: files });
     });
+
+    return true; 
   }
 });
