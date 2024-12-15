@@ -89,16 +89,30 @@ function findLargest(arr) {
 
 // タブ切り替えの実装
 document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
+  tab.addEventListener('mouseenter', () => {
     // アクティブなタブのスタイルを削除
     document.querySelector('.tab.active').classList.remove('active');
-    // クリックされたタブをアクティブに
+    // マウスオーバーされたタブをアクティブに
     tab.classList.add('active');
-
-    // ここにフィルタリングのロジックを追加
-    const fileType = tab.textContent.trim();
-    // console.log('Selected file type:', fileType);
-    // 実際のフィルタリング処理をここに実装
+    
+    // タブのIDに基づいてファイル一覧を更新
+    switch(tab.id) {
+      case 'getFilesButton_all':
+        getRecentFiles(0);
+        break;
+      case 'getFilesButton_folder':
+        getRecentFiles(1);
+        break;
+      case 'getFilesButton_docs':
+        getRecentFiles(2);
+        break;
+      case 'getFilesButton_sheets':
+        getRecentFiles(3);
+        break;
+      case 'getFilesButton_slides':
+        getRecentFiles(4);
+        break;
+    }
   });
 });
 
