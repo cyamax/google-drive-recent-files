@@ -30,23 +30,23 @@ function getRecentFiles(fileType) {
       // アイコンを追加する
       let iconId = ""
       if (/document/.test(file.webViewLink)) {
-        iconId = "icon-doc";
+        iconId = "docs.svg";
       } else if (/spreadsheets/.test(file.webViewLink)) {
-        iconId = "icon-sheet";
+        iconId = "sheets.svg";
       } else if (/presentation/.test(file.webViewLink)) {
-        iconId = "icon-slide";
+        iconId = "slides.svg";
       } else if (/forms/.test(file.webViewLink)) {
-        iconId = "icon-form";
+        iconId = "forms.svg";
       } else if (/drive/.test(file.webViewLink)) {
-        iconId = "icon-folder";
+        iconId = "folder.svg";
       } else {
-        iconId = "icon-folder"; // それ以外のファイルのアイコンのパス
+        iconId = "folder.svg"; // それ以外のファイルのアイコンのパス
       }
 
       const historyItemHTML = `<a href="${file.webViewLink}" target="_blank">
           <div class="history-item">
             <span class="highlight" title="many times">${boldFlag}</span>
-            <svg class="file-icon ${iconId}"><use xlink:href="sprite.svg#${iconId}" ></use></svg>
+            <img class="file-icon" src="images/${iconId}">
             <span class="file-name">${textContent}</span>
             <span class="access-time">${timeStamp.toLocaleDateString()}</span>
           </div>
