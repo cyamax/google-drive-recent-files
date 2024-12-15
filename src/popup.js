@@ -46,7 +46,7 @@ function getRecentFiles(fileType) {
       const historyItemHTML = `<a href="${file.webViewLink}" target="_blank">
           <div class="history-item">
             <span class="highlight" title="many times">${boldFlag}</span>
-            <img class="file-icon" src="images/${iconId}">
+            <img class="file-icon" src="icons/${iconId}">
             <span class="file-name">${textContent}</span>
             <span class="access-time">${timeStamp.toLocaleDateString()}</span>
           </div>

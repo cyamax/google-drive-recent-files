@@ -7,7 +7,7 @@
     "history" 
   ],
   "icons": {
-    "128": "icons/icon_128.png"
+    "128": "icon128.png"
   },
   "action": {
     "default_popup": "popup.html"
