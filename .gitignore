@@ -14,3 +14,4 @@ npm-debug.log*
 # packed files
 /release
 package-lock.json
+google_drive_recent_files.zip

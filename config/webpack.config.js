@@ -1,6 +1,7 @@
 'use strict';
 
 const { merge } = require('webpack-merge');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.common.js');
 const PATHS = require('./paths');
@@ -12,6 +13,13 @@ const config = (env, argv) =>
       popup: PATHS.src + '/popup.js',
       background: PATHS.src + '/background.js',
     },
+    plugins: [
+      new CopyPlugin({
+        patterns: [
+          { from: PATHS.src + '/popup.html', to: 'popup.html' },
+        ],
+      }),
+    ],
     devtool: argv.mode === 'production' ? false : 'source-map',
   });
 

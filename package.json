@@ -8,6 +8,7 @@
     "build": "webpack --mode=production --config config/webpack.config.js",
     "pack": "node pack.js",
     "repack": "npm run build && npm run pack",
+    "prod": "npm run build && zip -r google_drive_recent_files.zip build",
     "format": "prettier --write --ignore-unknown \"{config,public,src}/**/*.{html,css,js,ts,json}\""
   },
   "devDependencies": {
